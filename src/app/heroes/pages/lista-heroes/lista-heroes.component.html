@@ -40,9 +40,21 @@
 <ul class="list-group">
     <li *ngFor="let heroe of heroes; 
         let i = index;
-        let isFirst = first
+        let isFirst = first;
+        let isLast = last;
+        let isEven = even;
         "
-        class="list-group-item">{{ i + 1}} - {{ isFirst }} - {{ heroe }} </li>
+        class="list-group-item"
+        [ngClass]="{
+            'list-group-item-warning': isLast,
+            'list-group-item-secondary': isEven,
+        }"
+
+
+        >
+        {{ i + 1}} - {{ isFirst }} - {{ heroe }}
+
+    </li>
 
 </ul>
 
