@@ -1,0 +1,59 @@
+
+
+<h2>Listado de Héroes</h2>
+<hr>
+
+
+
+<button
+    (click)="borrarUltimoHeroe()"
+    class="btn btn-danger mb-3">
+    Borrar último héroe
+</button>
+
+
+
+<!-- <div *ngIf="heroeBorrado; else noHayHeroeBorrado">
+    <h4>Ultimo héroe borrado: {{ heroeBorrado }}</h4>
+</div>
+
+<ng-template #noHayHeroeBorrado>
+    <h4>No hay ningún héroe borrado </h4>
+</ng-template>
+
+<br> -->
+
+<!-- Versiones nuevas de angular. -->
+@if( heroeBorrado ) {
+    <h4>Ultimo héroe borrado: {{ heroeBorrado }}</h4>
+} @else {
+    <h4>No hay ningún héroe borrado </h4>
+}
+
+<br>
+
+
+
+
+
+
+<ul class="list-group">
+    <li *ngFor="let heroe of heroes; 
+        let i = index;
+        let isFirst = first
+        "
+        class="list-group-item">{{ i + 1}} - {{ isFirst }} - {{ heroe }} </li>
+
+</ul>
+
+<!-- Versión nueva -->
+<h3>Versión nueva</h3>
+<ul class="list-group">
+    @for( heroe of heroes; track $index ) {
+        <li class="list-group-item">{{ heroe }}</li>
+    }
+   
+</ul>
+
+
+
